@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Base ---------- */
+
+:root {
+  /* Lotus palette */
+  --lotus-deep: #a31633;
+  --lotus-rose: #b83453;
+  --lotus-pink: #cf5c75;
+  --lotus-blush: #e4acb2;
+  --lotus-mist: #f6dbda;
+  --lotus-green: #374b1e;
+
+  /* Design tokens */
+  --bg: #fdf7f8;
+  --card-bg: #ffffff;
+  --primary: var(--lotus-pink);         /* soften: pink as main accent */
+  --border-subtle: #f1d8df;
+  --text-main: #26151a;
+  --text-muted: #7a5b64;
+}
+
+html,
+body {
+  line-height: 1.55;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.brand-title {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.nav-tabs button {
+  font-weight: 500;
+}
+
+.card, p, span, li, input, textarea, button {
+  font-weight: 400;
+}
+
+p, li, .profile-about, .post-body, .profile-post-text {
+  line-height: 1.6;
+}
+
+/* ---------- App shell & layout ---------- */
+
+.app {
+  min-height: 100vh;
+  background: radial-gradient(
+    circle at top left,
+    #ffeef3,
+    #f7f8f3
+  ); /* pink with soft green tint */
+}
+
+.main-shell {
+  max-width: 1120px;
+  margin: 1.2rem auto 2rem;
+  padding: 0 1.25rem;
+}
+
+/* Utility text styles */
+
+.text-muted {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Top navigation ---------- */
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.75rem;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.logo-img {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.nav-tabs button {
+  border: none;
+  background: transparent;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: background 0.15s ease, color 0.15s ease, transform 0.05s;
+}
+
+.nav-tabs button:hover {
+  background: #f7dde3;
+}
+
+.nav-tabs button.selected {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  transform: translateY(-1px);
+}
+
+/* ---------- Cards & shared UI ---------- */
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  padding: 1rem 1.1rem;
+  box-shadow: 0 8px 20px rgba(163, 22, 51, 0.04); /* softer */
+}
+
+.primary-btn {
+  background: var(--lotus-green);   /* green accent for primary actions */
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s;
+}
+
+.primary-btn:hover {
+  background: #263112;
+  transform: translateY(-1px);
+}
+
+.outline-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(55, 75, 30, 0.35);
+  background: transparent;
+  color: var(--lotus-green);
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.outline-btn:hover {
+  background: rgba(55, 75, 30, 0.08); /* soft green wash */
+  border-color: var(--lotus-green);
+}
+
+
+.tiny-btn {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+}
+
+.small-btn {
+  font-size: 0.8rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+}
+
+.tag-pill {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(55, 75, 30, 0.12); /* soft green wash */
+  color: var(--lotus-green);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.tag-pill.small {
+  font-size: 0.7rem;
+}
+
+
+/* ---------- Profiles search (Blog.svelte) ---------- */
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.blog-main h1 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--lotus-green); /* green accent heading */
+}
+
+.blog-header {
+  margin-bottom: 0.9rem;
+}
+
+.blog-search {
+  width: 100%;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(55, 75, 30, 0.25); /* green tint */
+  font-size: 0.85rem;
+  margin-top: 0.55rem;
+  background: #f7f9f4; /* pale green wash */
+}
+
+.blog-search:focus {
+  outline: none;
+  border-color: var(--lotus-green);
+  box-shadow: 0 0 0 2px rgba(55, 75, 30, 0.25);
+}
+
+
+.post-card {
+  border-top: 1px solid #f0d7df;
+  padding-top: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.post-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.profile-thumb {
+  flex-shrink: 0;
+}
+
+.profile-thumb img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffe5ea;
+}
+
+.post-title {
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.post-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.post-summary {
+  font-size: 0.9rem;
+  margin: 0.4rem 0 0.3rem;
+}
+
+.post-body {
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+.inline-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 0.25rem;
+  color: var(--primary);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.profile-gallery {
+  margin-top: 0.45rem;
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.profile-gallery img {
+  width: 96px;
+  height: 96px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid #f0d7df;
+}
+
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.mini {
+  font-size: 0.85rem;
+}
+
+.mini-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--lotus-green); /* subtle green accent */
+}
+
+.link-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+}
+
+.inline-link {
+  color: var(--lotus-green);
+}
+
+.mini-title {
+  color: var(--lotus-green);
+}
+
+.profile-feed-meta,
+.mini-post-time {
+  color: rgba(55, 75, 30, 0.55);
+}
+
+
+/* ---------- My Profile (Profile.svelte) ---------- */
+
+.single-column {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.profile-banner {
+  height: 80px;
+  background: linear-gradient(
+    135deg,
+    #f6dbda,
+    #e4acb2,
+    rgba(55, 75, 30, 0.85)
+  ); /* pastel pink flowing into soft green */
+}
+
+.profile-avatar {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: var(--lotus-green);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: -40px auto 0.6rem;
+}
+
+.profile-name {
+  text-align: center;
+  font-size: 1.05rem;
+  margin-bottom: 0.1rem;
+}
+
+.profile-title,
+.profile-location {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.profile-location {
+  margin-bottom: 0.7rem;
+}
+
+.profile-card hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 0.7rem 1.25rem;
+}
+
+.profile-section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0.8rem 1.25rem 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--lotus-green); /* green accent section title */
+}
+
+.profile-about {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin: 0.25rem 1.25rem 0.7rem;
+}
+
+/* ---------- Upskill (Upskill.svelte) ---------- */
+
+.course-card {
+  border-top: 1px solid #f0d7df;
+  padding-top: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.course-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.course-provider,
+.course-length {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Jobs (Jobs.svelte) ---------- */
+
+.job-card {
+  border-top: 1px solid #f0d7df;
+  padding-top: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.job-title {
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.job-company {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.job-location {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 880px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .top-nav {
+    padding-inline: 1rem;
+  }
+
+  .main-shell {
+    padding-inline: 1rem;
+  }
+}
