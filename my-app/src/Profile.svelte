@@ -51,7 +51,6 @@ the skills I’m building, the people I support, and the future I am working tow
   ];
 
   let newUpdateText = "";
-  let newUpdateImageUrl = "";
 
   function toggleEdit() {
     editMode = !editMode;
@@ -79,12 +78,6 @@ the skills I’m building, the people I support, and the future I am working tow
 	newUpdateImagePreview = "";
 }
 
-
-  function viewAllBloomUpdates() {
-    // future: navigate to a dedicated Bloom Updates / timeline subpage
-    // for now, this is just a placeholder
-    alert("Future: this will open a full Bloom Updates timeline page.");
-  }
 
   let newUpdateImageFile = null;
   
@@ -194,7 +187,7 @@ the skills I’m building, the people I support, and the future I am working tow
 			on:change={handleImageUpload}
 			class="img-upload-input"
 			/>
-			📷 Add a photo
+			Add a photo
 		</label>
 
 		<!-- PREVIEW -->
@@ -219,13 +212,6 @@ the skills I’m building, the people I support, and the future I am working tow
     <!-- Bloom Updates feed -->
     <div class="bloom-feed-header">
       <span class="bloom-feed-title">Recent Bloom Updates</span>
-      <button
-        class="inline-link bloom-view-all"
-        type="button"
-        on:click={viewAllBloomUpdates}
-      >
-        View all
-      </button>
     </div>
 
     <div class="bloom-feed">
