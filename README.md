@@ -102,3 +102,4 @@ Lotus is social-media styled and is largely inspired by platforms like LinkedIn 
 # Demo  
 
 # Site Link  
+[Lotus Site](https://lotusforgood.netlify.app/)
