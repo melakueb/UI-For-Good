@@ -87,7 +87,8 @@ Lotus is social-media styled and is largely inspired by platforms like LinkedIn 
 # Use of AI 
 - Integrate color scheme  
 - Optimize code  
-- Define the user stories based on the research article  
+- Define the user stories based on the research article
+- Random person generator
 
 ---
 
